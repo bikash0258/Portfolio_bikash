@@ -1,0 +1,219 @@
+import streamlit as st
+from streamlit_option_menu import option_menu
+import requests
+from streamlit_lottie import st_lottie  # Add this import
+
+st.set_page_config(layout="wide")
+
+# 🔁 First define the function
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+# ✅ Then use it
+lottie_coder = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_UBiAADPga8.json")
+
+st.write("##")
+st.subheader("Hello and welcome!")
+st.title("Bikash Sharma | Aspiring Data Scientist & Software Developer")
+#st.write("National Institute of Technology Silchar")
+#st.write("[Read More](https://streamlit.io/)")
+#st.write('__')
+
+with st.container():
+    selected = option_menu(
+        menu_title=None,
+        options=['About', 'Projects', 'Skills', 'Contact'],
+        icons=['person', 'code-slash', 'chat-left-text-fill'],
+        orientation='horizontal'
+    )
+
+if selected == 'About':
+    with st.container():
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write("##")
+            st.subheader("Final-year M.Tech Student | NIT Silchar")
+            st.write("""
+               Passionate about Computer Vision, Deep Learning, and Intelligent Systems.
+               Hands-on experience in building real-world ML applications including
+               medical imaging, object detection, and surveillance-based solutions.
+               """)
+           # st.title("Undergrad at BIT")
+        with col2:
+            st_lottie(lottie_coder, height=200, key="coder")
+
+        st.write("___")
+
+        with st.container():
+            col3,col4 = st.columns(2)
+            with col3:
+                st.header("🎓 Education")
+
+                st.subheader("National Institute of Technology, Silchar")
+                st.write("**Degree:** M.Tech in Computer Science & Engineering (AI)")
+                st.write("**Grade:** 7.79 CGPA")
+                st.write("**Duration:** 2024 – 2026")  # You can adjust the year if needed
+
+                st.markdown("---")
+
+                st.subheader("Assam Science & Technology University")
+                st.write("**College:** Girijananda Chowdhury Institute of Management and Technology")
+                st.write("**Degree:** B.Tech in Computer Science & Engineering")
+                st.write("**Grade:** 8.41 CGPA")
+                st.write("**Duration:** 2020 – 2024")
+
+            with col4:
+                st.header("Experience")
+
+                st.subheader("🎓 Android Real-Time Face Detection App — IIT Guwahati")
+                st.write("**Duration:** July 2023 – Sept 2023")
+                st.markdown("""
+                - Developed an advanced Android application using **Java** (backend) and **XML** (UI), focusing on seamless user experience.
+                - Integrated **Firebase ML Kit** for real-time face detection and recognition.
+                - Achieved high responsiveness and smooth face-tracking performance on Android devices.
+                """)
+
+                st.markdown("---")
+
+                st.subheader("💳 Credit Card Risk Score Prediction — Internshala")
+                st.write("**Date:** Sept 9, 2022")
+                st.markdown("""
+                - Built a **credit risk model** to predict default probability for IDFC Bank customers using machine learning.
+                - Applied **feature engineering**, handled **class imbalance**, and performed **dimensionality reduction** for model optimization.
+                - Tools used: Python, NumPy, scikit-learn, PyTorch, Pandas, Matplotlib.
+                """)
+
+
+# Projects Section
+elif selected == 'Projects':
+    with st.container():
+        st.header("🚀 Projects")
+        st.write("")
+
+        # Project 1
+        st.subheader("🧬 Breast Cancer Diagnosis Using Hybrid Deep Learning")
+        st.markdown("""
+        - Developed a high-performance diagnostic model using hybrid deep learning techniques.
+        - Compared multiple architectures: `ResNet50 + SVM`, `ResNet50 + InceptionV3`, `ResNet50 + MobileNet`, and `ResNet50 + Perceptron`.
+        - Final model (ResNet + Perceptron) achieved **97.5% accuracy** on MRI-based breast cancer classification.
+        - Technologies: Python, Keras, TensorFlow, Albumentations, Matplotlib.
+        - 📂 [View GitHub Repository](https://github.com/bikash0258/---Breast-Cancer-Diagnosis-Using-Hybrid-Deep-Learning-Models)
+        """)
+
+        st.markdown("---")
+
+        # Project 2
+        st.subheader("🚗 Vehicle Image Classification")
+        st.markdown("""
+        - Built a multi-class vehicle classifier using a custom image dataset.
+        - Applied data cleaning with **CleanVision**, augmentation using **Albumentations**, and class balancing with **WeightedRandomSampler**.
+        - Utilized **EfficientNet-B0** with transfer learning for final classification.
+        - Achieved high validation accuracy and robust performance across diverse vehicle classes.
+        - Tools: PyTorch, torchvision, matplotlib, pandas.
+        - 📂 [View GitHub Repository](https://github.com/bikash0258/Vehicle_Classification/tree/main)
+        """)
+
+        st.markdown("---")
+
+        # Project 3
+        st.subheader("🌊 Unsupervised Segmentation for Disaster Management")
+        st.markdown("""
+        - Designed an unsupervised image segmentation model to detect **flood-affected regions**.
+        - Applied clustering algorithms: **K-Means**, **GMM**, and **DBSCAN** on 290 annotated flood images.
+        - Used **Elbow Method** and **Silhouette Score** for tuning and evaluation.
+        - Helped automate mapping of disaster zones for emergency response systems.
+        - Tools: Python, OpenCV, scikit-learn, matplotlib.
+        - 📂 [View GitHub Repository](https://github.com/bikash0258/unsupervised-flood-segmentation)
+        """)
+elif selected == 'Skills':
+    with st.container():
+        st.header("🛠️ Skills Overview")
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.subheader("💻 Languages & Frameworks")
+            st.markdown("""
+            - **Programming:** C, C++, Python  
+            - **Libraries & Tools:** Pandas, NumPy, Matplotlib, Seaborn, Pyplot, Plotly, hvPlot  
+            - **ML/DL Frameworks:** TensorFlow, Keras, PyTorch, OpenCV  
+            - **Web & UI:** Streamlit  
+            - **Database:** MySQL
+            """)
+
+            st.subheader("🧠 Core Competencies")
+            st.markdown("""
+            - Data Structures & Algorithms (DSA)  
+            - Operating Systems  
+            - DBMS  
+            - Deep Learning  
+            - Artificial Intelligence (AI)  
+            - Machine Learning (ML)
+            - Statistics  
+            - Image Processing
+            """)
+
+        with col2:
+            st.subheader("📦 Software & IDEs")
+            st.markdown("""
+            - C/C++ Compilers  
+            - Android Studio  
+            - Visual Studio  
+            - IntelliJ IDEA  
+            - PyCharm
+            """)
+
+            st.subheader("🔬 Additional Knowledge")
+            st.markdown("""
+            - Computer Vision  
+            - Automatic Number Plate Recognition (ANPR)  
+            - Smart City Technologies  
+            - Object Detection (YOLO, SSD)
+            """)
+
+            st.subheader("🤝 Soft Skills")
+            st.markdown("""
+            - Problem Solving  
+            - Adaptability  
+            - Teamwork  
+            - Active Listening  
+            - Quick Learner  
+            - Self-Taught & Team-Oriented
+            """)
+elif selected == 'Contact':
+    with st.container():
+        st.header("📬 Get in Touch")
+        st.write("Fill out the form below to send me a message directly:")
+
+        contact_form = """
+        <form action="https://formsubmit.co/bikashsharma12dec@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+
+            <input type="text" name="name" placeholder="Your Name" required 
+                style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+
+            <input type="email" name="email" placeholder="Your Email" required 
+                style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+
+            <textarea name="message" placeholder="Your Message..." required 
+                style="width: 100%; padding: 10px; height: 150px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+
+            <button type="submit" 
+                style="margin-top: 10px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">
+                Send
+            </button>
+        </form>
+        """
+
+        # ✅ Correct way to render full HTML forms in Streamlit
+        import streamlit.components.v1 as components
+
+        components.html(contact_form, height=600)
+
+
+
+
+
