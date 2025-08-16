@@ -98,7 +98,7 @@ elif selected == 'Projects':
         - Leveraged **PyTorch**, **Hugging Face Transformers**, **NLTK**, and **scikit-learn** for efficient training and evaluation.
         - Delivered accurate predictions and an interactive interface for real-world usability.
         - Tools: PyTorch, Hugging Face, NLTK, Streamlit, scikit-learn.
-      #  - 📂 [View GitHub Repository](https://github.com/bikash0258/Mental_Health_BERT)
+        - 📂 [View GitHub Repository](https://github.com/bikash0258/Mental_Health_BERT)
         """)
 
         st.markdown("---")
@@ -111,7 +111,7 @@ elif selected == 'Projects':
         - Fine-tuned **T5-base model** on a custom dataset of ingredients and instructions to translate inputs into structured recipe steps.
         - Optimized for **BLEU score** and inference quality to ensure recipe accuracy.
         - Tools: PyTorch, Hugging Face, Transformers, NLP, Streamlit.
-     #   - 📂 [View GitHub Repository](https://github.com/bikash0258/Recipe_Generator_T5)
+        - 📂 [View GitHub Repository](https://github.com/bikash0258/Recipe_Generator_T5)
         """)
 
         st.markdown("---")
@@ -236,4 +236,5 @@ elif selected == 'Contact':
         """
 
         components.html(contact_form, height=600)
+
 
