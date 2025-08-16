@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import requests
-from streamlit_lottie import st_lottie  # Add this import
+from streamlit_lottie import st_lottie  # Add this import 
 
 st.set_page_config(layout="wide")
 
@@ -117,6 +117,34 @@ elif selected == 'Projects':
         """)
 
         st.markdown("---")
+        # Project 3
+        st.subheader("🧠 NLP-Based Mental Health Predictor (BERT)")
+        st.markdown("""
+      - Developed a web app to classify user input text into mental health conditions using a fine-tuned **BERT** model.
+      - Designed an end-to-end pipeline including **text preprocessing**, **model training**, and **deployment** in Streamlit.
+      - Leveraged **PyTorch**, **Hugging Face Transformers**, **NLTK**, and **scikit-learn** for efficient training and evaluation.
+      - Delivered accurate predictions and an interactive interface for real-world usability.
+      - Tools: PyTorch, Hugging Face, NLTK, Streamlit, scikit-learn.
+    - 📂 [View GitHub Repository](https://github.com/bikash0258/Mental_Health_BERT)
+       """)
+
+       st.markdown("---")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
         # Project 3
         st.subheader("🌊 Unsupervised Segmentation for Disaster Management")
@@ -212,6 +240,7 @@ elif selected == 'Contact':
         import streamlit.components.v1 as components
 
         components.html(contact_form, height=600)
+
 
 
 
